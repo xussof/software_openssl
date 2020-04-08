@@ -1,0 +1,29 @@
+---
+#- name: Installing openssl packages using apt
+#  become: true
+#  apt:
+#    pkg: "openssl"
+#    update_cache: yes
+#    state: latest
+#  when: ansible_distribution == 'Ubuntu'
+
+#- name: Installing openssl packages using yum
+#  become: true
+#  yum:
+#    pkg: "openssl"
+#    update_cache: yes
+#    state: latest
+#  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+
+#- name: Installing openssl packages using pacman
+#  pacman:
+#    name: "openssl"
+#    state: present
+#  when: ansible_distribution == 'MacOSX'
+
+- name: Installing openssl packages
+  become: true
+  package:
+    name: "openssl"
+    state: present
